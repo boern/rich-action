@@ -106,7 +106,7 @@ export const POST = async (req: Request) => {
     }
 
     const connection = new Connection(clusterApiUrl('mainnet-beta'));
-    const decimals = 6; // In the example, we use 6 decimals for RICH, but you can use any SPL token
+    const decimals = 2; // In the example, we use 6 decimals for RICH, but you can use any SPL token
     const mintAddress = new PublicKey(SOLANA_MAINNET_RICH_PUBKEY); // replace this with any SPL token mint address
 
     // converting value to fractional units
