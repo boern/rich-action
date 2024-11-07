@@ -32,7 +32,7 @@ export const GET = async (req: Request) => {
     const payload: ActionGetResponse = {
       type: 'action',
       title: 'Donate Rich to Boern',
-      icon: 'https://ucarecdn.com/7aa46c85-08a4-4bc7-9376-88ec48bb1f43/-/preview/880x864/-/quality/smart/-/format/auto/',
+      icon: 'https://raw.githubusercontent.com/octopus-network/omnity-token-imgs/main/rich.png',
       description:
         'Hope you get rich!',
       label: 'Donate', // this value will be ignored since `links.actions` exists
@@ -193,7 +193,7 @@ export const POST = async (req: Request) => {
 
 function validatedQueryParams(requestUrl: URL) {
   let toPubkey: PublicKey = new PublicKey(
-    '3gghk7mHWtFsJcg6EZGK7sbHj3qW6ExUdZLs9q8GRjia',
+    'FDR2mUpiHKFonnwbUujLyhuNTt7LHEjZ1hDFX4UuCngt',
   );
   let amount: number = 10;
 
