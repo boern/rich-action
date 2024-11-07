@@ -13,8 +13,8 @@ import {
 } from '@solana/web3.js';
 import * as splToken from '@solana/spl-token';
 
-const SOLANA_MAINNET_USDC_PUBKEY =
-  'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
+const SOLANA_MAINNET_RICH_PUBKEY =
+  '8j45TBhQU6DQhRvoYd9dpQWzTNKstB6kpnfZ3pKDCxff';
 
 const headers = createActionHeaders();
 
@@ -30,36 +30,36 @@ export const GET = async (req: Request) => {
 
     const payload: ActionGetResponse = {
       type: 'action',
-      title: 'Donate USDC-SPL to Alice',
+      title: 'Donate Rich to Boern',
       icon: 'https://ucarecdn.com/7aa46c85-08a4-4bc7-9376-88ec48bb1f43/-/preview/880x864/-/quality/smart/-/format/auto/',
       description:
-        'Cybersecurity Enthusiast | Support my research with a donation.',
+        'Hope you get rich!',
       label: 'Donate', // this value will be ignored since `links.actions` exists
       links: {
         actions: [
           {
             type: 'transaction',
-            label: 'Send 10 USDC', // button text
+            label: 'Send 10 RICH', // button text
             href: `${baseHref}&amount=${'10'}`,
           },
           {
             type: 'transaction',
-            label: 'Send 50 USDC', // button text
+            label: 'Send 50 ', // button text
             href: `${baseHref}&amount=${'50'}`,
           },
           {
             type: 'transaction',
-            label: 'Send 100 USDC', // button text
+            label: 'Send 100 RICH', // button text
             href: `${baseHref}&amount=${'100'}`,
           },
           {
             type: 'transaction',
-            label: 'Send USDC', // button text
+            label: 'Send RICH', // button text
             href: `${baseHref}&amount={amount}`, // this href will have a text input
             parameters: [
               {
                 name: 'amount', // parameter name in the `href` above
-                label: 'Enter the amount of USDC to send', // placeholder of the text input
+                label: 'Enter the amount of RICH to send', // placeholder of the text input
                 required: true,
               },
             ],
@@ -105,8 +105,8 @@ export const POST = async (req: Request) => {
     }
 
     const connection = new Connection(clusterApiUrl('mainnet-beta'));
-    const decimals = 6; // In the example, we use 6 decimals for USDC, but you can use any SPL token
-    const mintAddress = new PublicKey(SOLANA_MAINNET_USDC_PUBKEY); // replace this with any SPL token mint address
+    const decimals = 6; // In the example, we use 6 decimals for RICH, but you can use any SPL token
+    const mintAddress = new PublicKey(SOLANA_MAINNET_RICH_PUBKEY); // replace this with any SPL token mint address
 
     // converting value to fractional units
 
@@ -170,7 +170,7 @@ export const POST = async (req: Request) => {
       fields: {
         type: 'transaction',
         transaction,
-        message: `Donated ${amount} USDC to ${toPubkey.toBase58()}`,
+        message: `Donated ${amount} RICH to ${toPubkey.toBase58()}`,
       },
       // note: no additional signers are needed
       // signers: [],
@@ -192,7 +192,7 @@ export const POST = async (req: Request) => {
 
 function validatedQueryParams(requestUrl: URL) {
   let toPubkey: PublicKey = new PublicKey(
-    'FWXHZxDocgchBjADAxSuyPCVhh6fNLT7DUggabAsuz1y',
+    '3gghk7mHWtFsJcg6EZGK7sbHj3qW6ExUdZLs9q8GRjia',
   );
   let amount: number = 10;
 
