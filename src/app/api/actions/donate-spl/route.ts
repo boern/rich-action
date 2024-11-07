@@ -4,6 +4,7 @@ import {
   ActionGetResponse,
   ActionPostRequest,
   createActionHeaders,
+  ACTIONS_CORS_HEADERS,
 } from '@solana/actions';
 import {
   clusterApiUrl,
@@ -44,7 +45,7 @@ export const GET = async (req: Request) => {
           },
           {
             type: 'transaction',
-            label: 'Send 50 ', // button text
+            label: 'Send 50 RICH', // button text
             href: `${baseHref}&amount=${'50'}`,
           },
           {
@@ -69,7 +70,7 @@ export const GET = async (req: Request) => {
     };
 
     return Response.json(payload, {
-      headers,
+      headers: ACTIONS_CORS_HEADERS
     });
   } catch (err) {
     console.log(err);
@@ -77,7 +78,7 @@ export const GET = async (req: Request) => {
     if (typeof err == 'string') message = err;
     return new Response(message, {
       status: 400,
-      headers,
+      headers: ACTIONS_CORS_HEADERS
     });
   }
 };
@@ -100,7 +101,7 @@ export const POST = async (req: Request) => {
     } catch (err) {
       return new Response('Invalid "account" provided', {
         status: 400,
-        headers,
+        headers: ACTIONS_CORS_HEADERS
       });
     }
 
@@ -185,7 +186,7 @@ export const POST = async (req: Request) => {
     if (typeof err == 'string') message = err;
     return new Response(message, {
       status: 400,
-      headers,
+      headers: ACTIONS_CORS_HEADERS,
     });
   }
 };
